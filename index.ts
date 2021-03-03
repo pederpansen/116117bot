@@ -90,6 +90,13 @@ class Impfbot {
           "https://001-iz.impfterminservice.de/assets/static/its/vaccination-list.json"
         )
       ).data
+        .filter((v: any) => {
+          if(this.config.vaccination) {
+            return v.name.indexOf(this.config.vaccination) !== -1
+          } else {
+            return true
+          }
+        })
         .map((v: any) => v.qualification)
         .join(",");
       const checkUrl =
@@ -100,6 +107,7 @@ class Impfbot {
         vaccinations +
         "&cachebuster=" +
         Date.now();
+      console.debug(`Checking URL: ${checkUrl}`)
       const availableResponse = (await axios.get(checkUrl)).data;
       return [
         availableResponse["termineVorhanden"] ? 1 : 0,

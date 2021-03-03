@@ -30,6 +30,7 @@ The [116117 Impfterminservice](https://www.impfterminservice.de) provides COVID-
 | Variable               | Required | Default | Description                                                                                                                     |
 | ---------------------- | :------: | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `URLS`                 |    ✅    |         | The URLs to be monitored (see above). If you provide more than one separated by commas, they will be checked round-robin style. |
+| `VACCINATION`          |          |         | Specific vaccination name to check for, one of: `BioNTech`, `Moderna`, `AstraZeneca`                                            |
 | `PUSHOVER_TOKEN`       |          |         | If you want to receive alerts via Pushover, the app token generated there.                                                      |
 | `PUSHOVER_USER`        |          |         | If you want to receive alerts via Pushover, the recipient ID (user or group) generated there.                                   |
 | `TIMEOUT_REGULAR`      |          | `300`   | The number of seconds 116117bot will wait between polls.                                                                        |
